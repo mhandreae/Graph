@@ -14,11 +14,49 @@ output:
 suppressWarnings(library(knitr))
 # set options
 opts_chunk$set(fig.width=6, fig.height=4, fig.path='Figs/',
-               echo=FALSE, warning=FALSE, message=FALSE)
+               echo=TRUE, warning=FALSE, message=FALSE)
 eval_everything=FALSE
 ```
 
 
 # Introduction
 
-Project to learn to use graphs in R and Rstan
+Project to learn to use graphs in R and Rstan using the [igraph tutorial](https://rpubs.com/shestakoff/tutorial_igraph "here") after reading the [basics of graph theory](https://en.wikipedia.org/wiki/Graph_theory) and a [glossary of graph theory](https://en.wikipedia.org/wiki/Glossary_of_graph_theory).
+
+```{r libraries}
+library(igraph)
+```
+
+## Create some graphs
+
+```{r create_graphs}
+g <- graph.empty(n=10, directed=TRUE)
+g <- graph.full(n=10, directed = FALSE, loops = FALSE)
+```
+
+## Getting information about graphs
+
+```{r getting_graph_information}
+edges <- c(1,2, 3,2, 2,4)
+g <- graph(edges, n=max(edges), directed=TRUE)
+vcount(g) # vertices
+ecount(g) # edges
+neighbors(g, V(g)[1], mode = 1)
+is.directed(g)
+are.connected(g, V(g)[1], V(g)[3])
+get.edgelist(g)
+```
+
+## Plotting graphs
+
+```{r plotting_graphs}
+plot(g)
+```
+
+## Graph import
+
+```{r, graph-import}
+advice_data_frame <-   read.table('http://sna.stanford.edu/sna_R_labs/data/Krack-High-Tec-edgelist-Advice.txt')
+g <- graph.data.frame(advice_data_frame)
+plot(g)
+```
