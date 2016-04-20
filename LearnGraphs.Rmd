@@ -1,0 +1,24 @@
+---
+title: \normalsize Utilization of Antiemetic Medication as a Marker of Healthcare
+  Disparities in Anesthesia \newline A Bayesian Hierarchical Model Using the National
+  Anesthesia Clinical Outcomes Registry
+csl: Bibliography/anesthesia-and-analgesia.csl
+fontfamily: pslatex
+output:
+  pdf_document: default
+---
+\setlength{\parindent}{0ex}
+
+
+```{r, global_options, echo=FALSE}
+suppressWarnings(library(knitr))
+# set options
+opts_chunk$set(fig.width=6, fig.height=4, fig.path='Figs/',
+               echo=FALSE, warning=FALSE, message=FALSE)
+eval_everything=FALSE
+```
+
+
+# Introduction
+
+Project to learn to use graphs in R and Rstan
